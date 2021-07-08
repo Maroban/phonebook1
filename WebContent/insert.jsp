@@ -1,9 +1,12 @@
-<%@page import="java.util.List"%>
-<%@page import="com.javaex.dao.PhoneDao"%>
-<%@page import="com.javaex.vo.PersonVo"%>
+<%@ page import="java.util.List"%>
+<%@ page import="com.javaex.dao.PhoneDao"%>
+<%@ page import="com.javaex.vo.PersonVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
+// post 방식 사용 시 한글 깨짐 방지
+request.setCharacterEncoding("UTF-8");
+
 // Request header 안에 파라미터 영역에 있는 값 꺼내기
 String name = request.getParameter("name");
 String hp = request.getParameter("hp");
@@ -17,7 +20,10 @@ PhoneDao phoneDao = new PhoneDao();
 phoneDao.insert(personVo);
 
 // 리스트 가져오기
-List<PersonVo> personList = phoneDao.getPersonList();
+/* List<PersonVo> personList = phoneDao.getPersonList(); */
+
+// 리다이렉트
+response.sendRedirect("./list.jsp");
 %>
 <!DOCTYPE html>
 <html>
@@ -26,7 +32,7 @@ List<PersonVo> personList = phoneDao.getPersonList();
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>전화번호 리스트 - insert</h1>
+	<%-- <h1>전화번호 리스트 - insert</h1>
 
 	<p>입력한 정보 내역입니다.</p>
 
@@ -51,7 +57,7 @@ List<PersonVo> personList = phoneDao.getPersonList();
 	<br>
 	<%
 	}
-	%>
+	%> --%>
 
 
 </body>
