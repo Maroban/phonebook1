@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!-- import 해주기 -->
 <%@ page import="com.javaex.dao.PhoneDao"%>
 <%@ page import="com.javaex.vo.PersonVo"%>
 <%@ page import="java.util.List"%>
@@ -20,6 +22,7 @@ List<PersonVo> personList = phoneDao.getPersonList();
 	<h1>전화번호 리스트</h1>
 	<p>입력한 정보 내역입니다.</p>
 
+	<!-- for반복문으로 DB데이터 출력하기 -->
 	<%
 	for (int i = 0; i < personList.size(); i++) {
 	%>
@@ -38,12 +41,14 @@ List<PersonVo> personList = phoneDao.getPersonList();
 			<td><%=personList.get(i).getCompany()%></td>
 		</tr>
 		<tr>
-			<td></td>      
+			<td></td>
 			<td><a href="./delete.jsp?id=<%=personList.get(i).getPerson_id()%>"> [삭제] </a>
 				<a href="./updateForm.jsp?id=<%=personList.get(i).getPerson_id()%>"> [수정]</a></td>
 		</tr>
 	</table>
 	<br>
+
+	<!-- jsp에서 java코드 사용할 때 끊어서 사용해야 한다. -->
 	<%
 	}
 	%>
