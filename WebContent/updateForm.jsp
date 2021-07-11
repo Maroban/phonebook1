@@ -1,6 +1,6 @@
 <%@page import="com.javaex.dao.PhoneDao"%>
 <%@page import="com.javaex.vo.PersonVo"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
 PhoneDao phoneDao = new PhoneDao();
